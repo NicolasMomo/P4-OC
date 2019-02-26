@@ -58,6 +58,7 @@ while ($comment = $comments->fetch())
         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
     </p>
 
+    <a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">Signaler</a>
 </div>
 <?php
 }
