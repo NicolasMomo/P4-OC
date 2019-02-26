@@ -51,6 +51,17 @@ function reportComment($id, $postId)
     post($postId);
 }
 
+function listReportedComments()
+{
+    $reportedComments = new \Nicolas\BlogPHP\Model\CommentManager();
+    $reported = $reportedComments->getReportedComments();
+    
+    $postManager = new \Nicolas\BlogPHP\Model\PostManager(); // Création d'un objet
+    $posts = $postManager->getPosts();
+    
+    require('view/frontend/connectAdmin.php');
+}
+
 function autoriseComment($id)
 {
     $autoriseComment = new \Nicolas\BlogPHP\Model\CommentManager();

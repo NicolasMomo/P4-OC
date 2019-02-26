@@ -33,6 +33,15 @@ class CommentManager extends Manager
         ));
     }
     
+     public function getReportedComments()
+    {
+        $db = $this->dbConnect();
+        $reportedComments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE reported = 1 ORDER BY comment_date DESC');
+        $reportedComments->execute();
+        
+        return $reportedComments->fetchAll();
+    }
+    
     public function autoriseComment($id)
     {
         $db = $this->dbConnect();

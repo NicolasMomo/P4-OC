@@ -47,6 +47,10 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'deleteComment'){
             deleteComment($_GET['id']);
         }
+        elseif ($_GET['action'] == 'seeReported'){
+            listReportedComments();
+            listPosts();
+        }
         //REDIRECT
         elseif ($_GET['action'] == 'connectForm'){
             connectForm();
