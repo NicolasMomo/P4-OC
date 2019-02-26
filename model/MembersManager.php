@@ -40,5 +40,46 @@ class MembersManager extends Manager
             header('Location: index.php');
         }
 	}
+    
+    public function connectMember($pseudo, $pass)
+    {
+        $db = $this->dbConnect();
+        
+        $req = $db->prepare('SELECT id, pass, admin FROM members WHERE pseudo = :pseudo');
+        $req->execute(array(
+	       'pseudo' => $pseudo));
+        $resultat = $req->fetch();
+        
+        $isPasswordCorrect = password_verify($pass, $resultat['pass']);
+        
+        if (!$resultat)
+        {
+            
+            $_SESSION['errorConnectPseudo'] = 'Mauvais identifiant ou mot de passe !';
+            header('location: ../architecture MVC/view/frontend/connexion.php');
+        }
+        elseif(!$isPasswordCorrect)
+        {
+            
+            $_SESSION['errorConnectPass'] = 'Mauvais identifiant ou mot de passe !';
+            header('location: ../architecture MVC/view/frontend/connexion.php');
+        }
+        elseif ($isPasswordCorrect) 
+            {
+                session_destroy();
+                session_start();
+                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['admin'] = $resultat['admin'];
+                $_SESSION['pseudo'] = $pseudo;
+                header('Location: index.php');
+            }
+    }
+    
+    public function disconnect()
+    {
+        session_destroy(); //destroy the session
+        header("location: index.php"); //to redirect back to "index.php" after logging out
+        exit();
+    }
 
 }

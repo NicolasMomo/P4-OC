@@ -41,3 +41,15 @@ function addMember($pseudo, $pass, $confirmPass, $mail)
         header('Location: view/frontend/inscription.php');
     }
 }
+
+function connectMember($pseudo, $pass)
+{
+    $connectMember = new \Nicolas\BlogPHP\Model\MembersManager();
+    $connectMember->connectMember($pseudo, $pass);
+}
+
+function disconnect()
+{
+    $disconnectMember = new \Nicolas\BlogPHP\Model\MembersManager();
+    $disconnect = $disconnectMember->disconnect();
+}

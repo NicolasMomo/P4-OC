@@ -21,6 +21,12 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'addMember') {
             addMember($_POST['pseudo'], $_POST['pass'], $_POST['confirmPass'], $_POST['email']);
         }
+        elseif ($_GET['action'] == 'connectMember'){
+            connectMember($_POST['userName'], $_POST['pass']);
+        }
+        elseif($_GET['action'] == 'disconnectMember'){
+          disconnect();  
+        }
     }
     else {
         listPosts();
