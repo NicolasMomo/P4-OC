@@ -17,6 +17,16 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'addComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
         //MEMBERS
         elseif ($_GET['action'] == 'addMember') {
             addMember($_POST['pseudo'], $_POST['pass'], $_POST['confirmPass'], $_POST['email']);
