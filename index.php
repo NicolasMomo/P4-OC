@@ -37,6 +37,13 @@ try { // On essaie de faire des choses
         elseif($_GET['action'] == 'disconnectMember'){
           disconnect();  
         }
+        //REDIRECT
+        elseif ($_GET['action'] == 'connectForm'){
+            connectForm();
+        }
+        elseif ($_GET['action'] == 'inscriptionForm'){
+            inscriptionForm();
+        }
     }
     else {
         listPosts();

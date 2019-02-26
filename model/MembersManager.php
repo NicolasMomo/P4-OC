@@ -81,5 +81,15 @@ class MembersManager extends Manager
         header("location: index.php"); //to redirect back to "index.php" after logging out
         exit();
     }
+    
+    public function connectForm()
+    {
+        header('Location: view/frontend/connexion.php');
+    }
+    
+    public function inscriptionForm()
+    {
+        header('Location: view/frontend/inscription.php');
+    }
 
 }

@@ -69,3 +69,15 @@ function disconnect()
     $disconnectMember = new \Nicolas\BlogPHP\Model\MembersManager();
     $disconnect = $disconnectMember->disconnect();
 }
+
+function connectForm()
+{
+    $connectForm = new \Nicolas\BlogPHP\Model\MembersManager();
+    $formConnect = $connectForm->connectForm();
+}
+
+function inscriptionForm()
+{
+    $inscriptionForm = new \Nicolas\BlogPHP\Model\MembersManager();
+    $formInscription = $inscriptionForm->connectForm();
+}
