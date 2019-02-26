@@ -5,6 +5,20 @@
 <h1>Espace d'administration</h1>
 <div id="adminSpace">
 
+    <div id="WrittingChap">
+
+        <h2>Nouveau chapitre</h2>
+
+        <form id="getNewChapter" action="index.php?action=addPost" method="post">
+
+            <label>Titre:<input type="text" name="title" id="title" value="" required /></label>
+
+            <textarea class="tinymce" name="tinymce_Chap"></textarea>
+
+            <input type="submit" id="send" value="Publier" />
+        </form>
+    </div>
+
     <div id="adminComments">
         <div>
             <h2>Modération des commentaires</h2>
@@ -61,6 +75,14 @@ $posts->closeCursor();
         </div>
     </div>
 </div>
+
+<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea'
+    });
+
+</script>
 
 <?php $content = ob_get_clean(); ?>
 
