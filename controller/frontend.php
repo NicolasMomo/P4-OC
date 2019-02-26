@@ -111,3 +111,31 @@ function inscriptionForm()
     $inscriptionForm = new \Nicolas\BlogPHP\Model\MembersManager();
     $formInscription = $inscriptionForm->connectForm();
 }
+
+/** Posts Manage **/
+
+function addPost($titleChap,$textChap){
+    $postNewChap=new \Nicolas\BlogPHP\Model\PostManager();
+	$newChapter= $postNewChap->addPost($titleChap,$textChap);
+    header('Location: index.php?action=seeReported');
+}
+
+function deletePost($id){
+    $postDelete = new \Nicolas\BlogPHP\Model\PostManager();
+    $deletePost = $postDelete->deletePost($id);
+    header('Location: index.php?action=seeReported');
+}
+
+function modifyPost($idEdit, $titleEdit, $textEdit){
+    $postModify = new \Nicolas\BlogPHP\Model\PostManager();
+    $modifyPost = $postModify->modifyPost($idEdit, $titleEdit, $textEdit);
+    header('Location: index.php?action=seeReported');
+}
+
+function seePost($id)
+{
+    $postManager = new \Nicolas\BlogPHP\Model\PostManager();
+    $post = $postManager->seePost($id); 
+    
+    require('view/frontend/modifyPosts.php');
+}

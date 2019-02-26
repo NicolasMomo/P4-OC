@@ -58,6 +58,24 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'inscriptionForm'){
             inscriptionForm();
         }
+        //POSTS
+        elseif ($_GET['action'] == 'seePost'){
+            seePost($_GET['id']);
+        }
+        elseif($_GET['action'] == 'addPost'){
+            $titleChap = $_POST['title'];
+            $textChap = $_POST['tinymce_Chap'];
+            addPost($titleChap,$textChap);
+        }
+        elseif ($_GET['action'] == 'deletePost'){
+            deletePost($_GET['id']);
+        }
+        elseif ($_GET['action'] == 'modifyPost'){
+            $idEdit = $_GET['id'];
+            $titleEdit = $_POST['title'];
+            $textEdit = $_POST['tinymce_Chap'];
+            modifyPost($idEdit, $titleEdit, $textEdit);
+        }
     }
     else {
         listPosts();
