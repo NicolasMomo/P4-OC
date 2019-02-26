@@ -17,6 +17,10 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        //MEMBERS
+        elseif ($_GET['action'] == 'addMember') {
+            addMember($_POST['pseudo'], $_POST['pass'], $_POST['confirmPass'], $_POST['email']);
+        }
     }
     else {
         listPosts();

@@ -10,7 +10,10 @@
 </head>
 
 <body>
-
+    <div id="welcomeLinks">
+        <a href="index.php?action=connectForm">Se connecter</a>
+        <a href="index.php?action=inscriptionForm">S'inscrire</a>
+    </div>
 </body>
 
 </html>

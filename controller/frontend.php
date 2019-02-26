@@ -27,3 +27,17 @@ function post($id)
 
     require('view/frontend/postView.php');
 }
+
+/** Members Manage **/
+
+function addMember($pseudo, $pass, $confirmPass, $mail)
+{
+    $newMember = new Member(NULL, $pseudo, $pass, $confirmPass, $mail); 
+    if (empty($newMember->errors())){
+        $memberManager = new \Nicolas\BlogPHP\Model\MembersManager();
+        $member = $memberManager->inscriptionMember($newMember);
+    }
+    else{
+        header('Location: view/frontend/inscription.php');
+    }
+}
