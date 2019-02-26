@@ -32,5 +32,23 @@ class CommentManager extends Manager
         'id'=>$id
         ));
     }
+    
+    public function autoriseComment($id)
+    {
+        $db = $this->dbConnect();
+        $autoriseComment = $db->prepare('UPDATE comments SET reported=0 where id=:id');
+        $autoriseComment->execute(array(
+        'id'=>$id
+        ));
+    }
+    
+    public function deleteComment($id)
+    {
+        $db = $this->dbConnect();
+        $delete = $db->prepare('DELETE FROM comments WHERE id=:id');
+        $delete->execute(array(
+        'id'=>$id
+        ));
+    }
 
 }

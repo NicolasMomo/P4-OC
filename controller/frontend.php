@@ -51,6 +51,18 @@ function reportComment($id, $postId)
     post($postId);
 }
 
+function autoriseComment($id)
+{
+    $autoriseComment = new \Nicolas\BlogPHP\Model\CommentManager();
+    $autorise = $autoriseComment->autoriseComment($id);
+}
+
+function deleteComment($id)
+{
+    $deleteComment = new \Nicolas\BlogPHP\Model\CommentManager();
+    $delete = $deleteComment->deleteComment($id); 
+}
+
 /** Members Manage **/
 
 function addMember($pseudo, $pass, $confirmPass, $mail)

@@ -41,6 +41,12 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'reportComment'){
             reportComment($_GET['id'], $_GET['postId']);
         }
+        elseif ($_GET['action'] == 'autoriseComment'){
+            autoriseComment($_GET['id']);
+        }
+        elseif ($_GET['action'] == 'deleteComment'){
+            deleteComment($_GET['id']);
+        }
         //REDIRECT
         elseif ($_GET['action'] == 'connectForm'){
             connectForm();
