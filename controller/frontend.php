@@ -44,6 +44,13 @@ function addComment($postId, $author, $comment)
     }
 }
 
+function reportComment($id, $postId)
+{
+    $reportComment = new \Nicolas\BlogPHP\Model\CommentManager();
+    $report = $reportComment->reportComment($id);
+    post($postId);
+}
+
 /** Members Manage **/
 
 function addMember($pseudo, $pass, $confirmPass, $mail)

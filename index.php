@@ -37,6 +37,10 @@ try { // On essaie de faire des choses
         elseif($_GET['action'] == 'disconnectMember'){
           disconnect();  
         }
+        //COMMENTS
+        elseif ($_GET['action'] == 'reportComment'){
+            reportComment($_GET['id'], $_GET['postId']);
+        }
         //REDIRECT
         elseif ($_GET['action'] == 'connectForm'){
             connectForm();
