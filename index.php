@@ -49,7 +49,6 @@ try { // On essaie de faire des choses
         }
         elseif ($_GET['action'] == 'seeReported'){
             listReportedComments();
-            listPosts();
         }
         //REDIRECT
         elseif ($_GET['action'] == 'connectForm'){

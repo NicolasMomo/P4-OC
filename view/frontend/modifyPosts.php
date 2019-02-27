@@ -13,7 +13,7 @@
         <?php
 					while($chapitre = $post->fetch()){
 				?>
-        <form id="getNewChapter" action="index.php?action=modifyPost" method="post">
+        <form id="getNewChapter" action="index.php?action=modifyPost&amp;id=<?php echo $chapitre['id']; ?>" method="post">
 
             <label>Titre:<input type="text" name="title" id="title" value="<?= htmlspecialchars($chapitre['title']) ?>" required /></label>
 
