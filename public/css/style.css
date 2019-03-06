@@ -1,0 +1,421 @@
+body {
+    margin: auto;
+    font-family: 'Old Standard TT', serif;
+}
+
+h1,
+h3 {
+    text-align: center;
+}
+
+h1,
+h2 {
+    text-decoration: underline;
+}
+
+h3 {
+    background-color: #4ea0d4e6;
+    color: white;
+    font-size: 0.9em;
+    margin: auto;
+}
+
+.news p {
+    margin-top: 0px;
+}
+
+.news {
+    width: 70%;
+    margin: auto;
+    background-color: #CCCCCC80;
+    border: 1px solid black;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+#welcome {
+    margin-left: 20px;
+}
+
+#welcomeConnect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#welcomeLinks {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#welcomeLinks a {
+    color: black;
+    border-radius: 50px;
+    border: 2px solid black;
+    background-color: #4ea0d4e6;
+    padding: 3px;
+}
+
+#welcomeLinks :first-child {
+    margin-right: 10px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+#welcomeTitle,
+.welcomeTitle {
+    font-size: 2.8em;
+    color: #4ea0d4e6;
+}
+
+#background {
+    height: 400px;
+    background-image: url("../img/alaska.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#background2 {
+    height: 400px;
+    background-image: url("../img/visuel3.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#background3 {
+    height: 400px;
+    background-image: url("../img/visuel4.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#background4 {
+    height: 350px;
+    background-image: url("../img/welcomeAlaska.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#separateur {
+    background-image: url("../img/paper.png");
+    height: 42px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scaleY(-1);
+}
+
+#separateur2 {
+    background-image: url("../img/paper.png");
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#separateur3 {
+    background-image: url("../img/paper2.png");
+    height: 42px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scaleY(-1);
+}
+
+#postsList {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.newsContent {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#img {
+    display: flex;
+    align-items: center;
+}
+
+#mountain {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 150px;
+    border: 2px solid #0075f9;
+    border-radius: 50%;
+}
+
+
+#iframe {
+    display: flex;
+    border: 1px solid black;
+}
+
+iframe {
+    width: 100%;
+    height: 450px;
+}
+
+/******** Inscription *********/
+#inscriptionTitle {
+    font-size: 2.8em;
+    color: #4ea0d4e6;
+}
+
+#formInscription {
+    width: 20%;
+    margin: auto;
+    border: 1px black solid;
+    padding: 10px;
+    background-color: #CCCCCC80;
+}
+
+#inscriptionPseudo,
+#inscriptionPass,
+#inscriptionEmail {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.inscriptionInput,
+#inscriptionConfirmPass {
+    display: flex;
+    justify-content: space-between;
+}
+
+#inscriptionConfirmPass {
+    margin-bottom: 10px;
+}
+
+
+/********* Connection *********/
+#connexionTitle {
+    font-size: 2.8em;
+    color: #4ea0d4e6;
+}
+
+#connection {
+    border: 1px solid black;
+    width: 15%;
+    margin: auto;
+    background-color: #CCCCCC80;
+}
+
+#connectForComment {
+    font-size: 1.5em;
+}
+
+#connexionInput {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/********* Comments *********/
+
+#postComment {
+    border: 1px solid black;
+    width: 11%;
+    padding-left: 20px;
+    background-color: #CCCCCC80;
+}
+
+#commentZone,
+#titleComments,
+#commentBlock {
+    margin-left: 20px;
+}
+
+#commentZone {
+    border: 1px solid black;
+    margin-top: 10px;
+    background-color: #CCCCCC80;
+    width: 30%;
+    padding-bottom: 5px;
+}
+
+#authorNameDate {
+    margin-top: 0px;
+    background-color: #2ab9d8;
+    color: white;
+}
+
+#commentZone a,
+#adminPosts a {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: black;
+    margin-left: 5px;
+}
+
+#commentText {
+    margin-left: 5px;
+}
+
+/********* Connection Admin *********/
+#connectAdmin {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+#adminLinks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    background-color: #4ea0d4e6;
+    border-radius: 30px 30px 0 0;
+}
+
+#adminLinks a {
+    text-decoration: underline;
+    color: white;
+}
+
+#adminComments,
+#adminPosts {
+    display: none;
+}
+
+.titles {
+    text-align: center;
+}
+
+.newsAdmin {
+    background-color: #CCCCCC80;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#newsAdminContent {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+}
+
+#WrittingChap,
+#adminPosts {
+    width: 80%;
+    margin: auto;
+}
+
+#postTitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+}
+
+#adminCommentZone {
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #CCCCCC;
+    width: 30%;
+    padding-bottom: 5px;
+}
+
+#adminCommentZone a {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: black;
+    margin-left: 5px;
+}
+
+#getNewChapter {
+    margin-top: 50px;
+}
+
+#modifyPostLabel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/** Bouton retourner vers le haut **/
+a#cRetour.cVisible {
+    bottom: 10px;
+    opacity: 1;
+}
+
+a#cRetour.cInvisible {
+    bottom: -35px;
+    opacity: 0;
+    -webkit-transition: all ease-in 0.5s;
+    -o-transition: all ease-in 0.5s;
+    transition: all ease-in 0.5s;
+}
+
+
+a#cRetour:hover {
+    background: rgba(0, 0, 0, 1);
+    -webkit-transition: all ease-in 0.2s;
+    -o-transition: all ease-in 0.2s;
+    transition: all ease-in 0.2s;
+}
+
+a#cRetour {
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 20px;
+    opacity: 1;
+    z-index: 99999;
+    -webkit-transition: all ease-in 0.2s;
+    -o-transition: all ease-in 0.2s;
+    transition: all ease-in 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-decoration: none;
+}
+
+a#cRetour::before {
+    content: "\25b2";
+}
