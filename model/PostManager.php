@@ -24,6 +24,14 @@ class PostManager extends Manager
         return $post;
     }
     
+    public function getPostsAsc()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date ASC LIMIT 0, 5');
+
+        return $req;
+    }
+    
         public function deletePost($id)
     {
         $db = $this->dbConnect();

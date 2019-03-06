@@ -17,6 +17,14 @@ function listPosts()
     require('view/frontend/listPostsView.php');
 }
 
+function listPostsAsc()
+{
+    $postManager = new \Nicolas\BlogPHP\Model\PostManager(); // Création d'un objet
+    $posts = $postManager->getPostsAsc(); // Appel d'une fonction de cet objet
+
+    require('view/frontend/listPostsView.php');
+}
+
 function post($id)
 {
     $postManager = new \Nicolas\BlogPHP\Model\PostManager();

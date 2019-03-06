@@ -58,6 +58,9 @@ try { // On essaie de faire des choses
             inscriptionForm();
         }
         //POSTS
+        elseif ($_GET['action'] == 'postsAsc'){
+            listPostsAsc();
+        }
         elseif ($_GET['action'] == 'seePost'){
             seePost($_GET['id']);
         }

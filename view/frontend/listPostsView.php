@@ -4,7 +4,11 @@
 <h1>Billet simple pour l'Alaska !</h1>
 <p>Derniers billets du blog :</p>
 
-
+<div id="organizeLinks">
+    <a href="index.php?action=postsAsc">&darr;Organiser du plus ancien au plus récent</a>
+    -
+    <a href="index.php?action=listPosts">&uarr;Organiser du plus récent au plus ancien</a>
+</div>
 <?php
 while ($data = $posts->fetch())
 {

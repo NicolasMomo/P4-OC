@@ -154,6 +154,14 @@ a {
     transform: scaleY(-1);
 }
 
+#organizeLinks {
+    text-align: right;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
 #postsList {
     display: flex;
     flex-direction: column;
