@@ -86,38 +86,56 @@ function deleteComment($id)
 
 function addMember($pseudo, $pass, $confirmPass, $mail)
 {
+    session_destroy();
+    session_start();
     $newMember = new Member(NULL, $pseudo, $pass, $confirmPass, $mail); 
     if (empty($newMember->errors())){
         $memberManager = new \Nicolas\BlogPHP\Model\MembersManager();
-        $member = $memberManager->inscriptionMember($newMember);
-    }
-    else{
-        header('Location: view/frontend/inscription.php');
+        $uniquePseudo = $memberManager->uniqueMember($newMember);
+        $uniqueEmail = $memberManager->uniqueMail($newMember);
+        if($uniquePseudo and $uniqueEmail){
+            $member = $memberManager->memberInscription($newMember);
+                header('Location: index.php?action=listPosts');
+        }
+        else{
+            if(!$uniquePseudo){
+                $_SESSION['errorPseudo'] = 'Ce pseudo est déjà utilisé';
+            }
+            if(!$uniqueEmail){
+                $_SESSION['errorMail'] = 'Cette adresse mail est déjà utilisée';
+            }
+            header('Location: index.php?action=inscriptionForm');
+        }
     }
 }
 
 function connectMember($pseudo, $pass)
 {
     $connectMember = new \Nicolas\BlogPHP\Model\MembersManager();
-    $connectMember->connectMember($pseudo, $pass);
+    $connected = $connectMember->connectMember($pseudo, $pass);
+    if($connected){
+        header('Location: index.php');
+    }
+    else{
+        header('Location: index.php?action=connectForm');
+    }
 }
 
 function disconnect()
 {
     $disconnectMember = new \Nicolas\BlogPHP\Model\MembersManager();
     $disconnect = $disconnectMember->disconnect();
+    header("location: index.php");
 }
 
 function connectForm()
 {
-    $connectForm = new \Nicolas\BlogPHP\Model\MembersManager();
-    $formConnect = $connectForm->connectForm();
+    require('view/frontend/connexion.php');
 }
 
 function inscriptionForm()
 {
-    $inscriptionForm = new \Nicolas\BlogPHP\Model\MembersManager();
-    $formInscription = $inscriptionForm->connectForm();
+    require('view/frontend/inscription.php');
 }
 
 /** Posts Manage **/
