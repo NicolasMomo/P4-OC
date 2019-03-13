@@ -29,7 +29,7 @@ try { // On essaie de faire des choses
             }
         //MEMBERS
         elseif ($_GET['action'] == 'addMember') {
-            addMember($_POST['pseudo'], $_POST['pass'], $_POST['confirmPass'], $_POST['email']);
+            addMember(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['pass']), htmlspecialchars($_POST['confirmPass']), htmlspecialchars($_POST['email']));
         }
         elseif ($_GET['action'] == 'connectMember'){
             connectMember($_POST['userName'], $_POST['pass']);
@@ -48,7 +48,13 @@ try { // On essaie de faire des choses
             deleteComment($_GET['id']);
         }
         elseif ($_GET['action'] == 'seeReported'){
-            listReportedComments();
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                listReportedComments();
+            }
+            else{
+                listPosts();
+            }
         }
         //REDIRECT
         elseif ($_GET['action'] == 'connectForm'){
@@ -62,21 +68,22 @@ try { // On essaie de faire des choses
             listPostsAsc();
         }
         elseif ($_GET['action'] == 'seePost'){
-            seePost($_GET['id']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                seePost($_GET['id']);
+            }
+            else{
+                listPosts();
+            }
         }
         elseif($_GET['action'] == 'addPost'){
-            $titleChap = $_POST['title'];
-            $textChap = $_POST['tinymce_Chap'];
-            addPost($titleChap,$textChap);
+            addPost($_POST['title'], $_POST['tinymce_Chap']);
         }
         elseif ($_GET['action'] == 'deletePost'){
             deletePost($_GET['id']);
         }
         elseif ($_GET['action'] == 'modifyPost'){
-            $idEdit = $_GET['id'];
-            $titleEdit = $_POST['title'];
-            $textEdit = $_POST['tinymce_Chap'];
-            modifyPost($idEdit, $titleEdit, $textEdit);
+            modifyPost($_GET['id'], $_POST['title'], $_POST['tinymce_Chap']);
         }
     }
     else {
