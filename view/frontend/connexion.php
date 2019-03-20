@@ -1,13 +1,11 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <link href="/php/architecture MVC/public/css/style.css" rel="stylesheet" />
-    <title>Inscription espace membre</title>
+    <link href="public/css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+    <title>Connexion au blog</title>
 </head>
 <style>
     form
@@ -17,8 +15,16 @@ session_start();
     </style>
 
 <body>
+
+    <h1 id="connexionTitle" class="welcomeTitle">CONNEXION AU BLOG</h1>
+
+    <div id="background4">
+        <div id="separateur"></div>
+        <div id="separateur2"></div>
+    </div>
+
     <div>
-        <form action="/php/architecture MVC/index.php?action=connectMember" method="post">
+        <form action="index.php?action=connectMember" method="post">
             <div id="connection">
                 <div>
                     <label for="userName">Identifiant</label><br />
@@ -42,8 +48,8 @@ session_start();
                 </div>
             </div>
             <div class="links">
-                <a href="inscription.php">Pas encore inscrit ? S'inscrire</a>
-                <a href="/php/architecture MVC/index.php">Retour vers la page d'accueil</a>
+                <a href="index.php?action=inscriptionForm">Pas encore inscrit ? S'inscrire</a>
+                <a href="index.php?action=listPosts">Retour vers la page d'accueil</a>
             </div>
         </form>
     </div>
