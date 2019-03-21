@@ -135,7 +135,16 @@ while ($comment = $comments->fetch())
         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
     </p>
 
-    <a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">Signaler</a>
+    <div id="reportButton">
+        <a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">Signaler</a>
+        <?php
+        if($comment['reported']){
+            ?>
+        <p>Ce commentaire à été signalé</p>
+        <?php
+        }
+    ?>
+    </div>
 </div>
 <?php
 }
