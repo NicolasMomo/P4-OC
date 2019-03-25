@@ -27,6 +27,11 @@ try { // On essaie de faire des choses
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             }
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
         //MEMBERS
         elseif ($_GET['action'] == 'addMember') {
             addMember(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['pass']), htmlspecialchars($_POST['confirmPass']), htmlspecialchars($_POST['email']));
@@ -42,10 +47,22 @@ try { // On essaie de faire des choses
             reportComment($_GET['id'], $_GET['postId']);
         }
         elseif ($_GET['action'] == 'autoriseComment'){
-            autoriseComment($_GET['id']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                autoriseComment($_GET['id']);
+            }
+            else{
+                listPosts();
+            }
         }
         elseif ($_GET['action'] == 'deleteComment'){
-            deleteComment($_GET['id']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                deleteComment($_GET['id']);
+            }
+            else{
+                listPosts();
+            }
         }
         elseif ($_GET['action'] == 'seeReported'){
             if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
@@ -77,13 +94,31 @@ try { // On essaie de faire des choses
             }
         }
         elseif($_GET['action'] == 'addPost'){
-            addPost($_POST['title'], $_POST['tinymce_Chap']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                addPost($_POST['title'], $_POST['tinymce_Chap']);
+            }
+            else{
+                listPosts();
+            } 
         }
         elseif ($_GET['action'] == 'deletePost'){
-            deletePost($_GET['id']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                deletePost($_GET['id']);
+            }
+            else{
+                listPosts();
+            } 
         }
         elseif ($_GET['action'] == 'modifyPost'){
-            modifyPost($_GET['id'], $_POST['title'], $_POST['tinymce_Chap']);
+            if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1)
+            {
+                modifyPost($_GET['id'], $_POST['title'], $_POST['tinymce_Chap']);
+            }
+            else{
+                listPosts();
+            } 
         }
     }
     else {
